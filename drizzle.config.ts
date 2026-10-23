@@ -1,1 +1,7 @@
-m«ëˆ§½©buªàºg§µÚâÏ9^r‰ßŠlRÆ y¶¬{®vçºh¢ø¥zŠ.µø¥y¶ëy©­æ¤zw(uçhºÚn¶êbÚ%Šw¬¡ù^aéƒu×œ¡×yÊz)éºØazZ]ŠÊek+aŠÉ²Æ z(§¦ëb›­~)^uçÚº[_¢»-v)è¢ëiºÚ.¶›­~)^uçÚº[_¢»-v‹­
+import { defineConfig } from "drizzle-kit";
+
+export default defineConfig({
+  out: "./drizzle",
+  schema: "./db/schema.ts",
+  dialect: "sqlite",
+});
