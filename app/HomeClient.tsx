@@ -160,7 +160,7 @@ export default function Home() {
         <div className="assistant-actions"><button type="button" onClick={showInfo}>Información</button><button type="button" onClick={goHome}>Inicio</button></div>
       </div>
       <button className="assistant-trigger" onClick={() => setAssistantOpen((open) => !open)} aria-expanded={assistantOpen} aria-label={assistantOpen ? "Cerrar asistente" : "Abrir asistente"}>
-        <img src={asset("/media/assistant-loop.webp")} alt="" onError={(event) => { const image = event.currentTarget; if (!image.dataset.fallback) { image.dataset.fallback = "true"; image.src = asset("/design/assistant-character.svg"); } }} />
+        <img src={asset("/media/assistant-original.webp")} alt="" />
         <span>{assistantOpen ? "×" : "¡Hola!"}</span>
       </button>
     </div>

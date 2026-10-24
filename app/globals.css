@@ -1,8 +1,5 @@
+/* The supplied Aktiv files contain empty glyphs; use complete system fonts. */
 @import "tailwindcss";
-@font-face{font-family:"Aktiv Grotesk";src:url("/fonts/aktiv-light.ttf") format("truetype");font-weight:300;font-style:normal;font-display:swap}
-@font-face{font-family:"Aktiv Grotesk";src:url("/fonts/aktiv-regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"Aktiv Grotesk";src:url("/fonts/aktiv-bold.ttf") format("truetype");font-weight:700 900;font-style:normal;font-display:swap}
-@font-face{font-family:"Aktiv Grotesk";src:url("/fonts/aktiv-xbolditalic.ttf") format("truetype");font-weight:800 900;font-style:italic;font-display:swap}
 :root { --ink:#101010; --paper:#f2eee6; --acid:#d9ff35; --coral:#ff5e45; --blue:#1749ff; }
 * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; background:var(--paper); color:var(--ink); font-family:Arial,Helvetica,sans-serif; } button { font:inherit; color:inherit; }
 .intro { min-height:100svh; background:var(--acid); position:relative; overflow:hidden; display:flex; flex-direction:column; padding:20px; }
@@ -112,13 +109,13 @@ body{background:#eef0f7}.home,.project-view{background:#fff}.nav{height:72px;bac
 .projects{padding-top:42px;align-items:center}.project{transform:scale(.86)!important;opacity:.72;transition:transform .38s cubic-bezier(.2,.75,.2,1),opacity .38s ease;transform-origin:center}.project.active{transform:scale(1)!important;opacity:1;z-index:3}.project-link{height:570px}.og-character{height:390px;margin:38px 0 0;border-radius:0!important;background:transparent!important;animation:character-breathe 3.2s ease-in-out infinite;overflow:visible}.og-character:before{display:none}.og-character img{display:block;width:100%;height:100%;object-fit:contain}.project-meta{padding-top:8px}.project-meta p{font-size:28px}.project-meta small{font-size:10px}.project-card-head{top:14px}.swipe-hint{padding-top:10px}.footer{margin-top:0}
 @media (min-width:700px){.drawer{right:calc(50% - 215px);width:300px}.video-placeholder{height:350px}}
 
-body,button{font-family:"Aktiv Grotesk",Arial,Helvetica,sans-serif}.hero h1 span,.intro-copy em,.more em{font-family:"Aktiv Grotesk",Arial,Helvetica,sans-serif}
+body,button{font-family:Arial,Helvetica,sans-serif}.hero h1 span,.intro-copy em,.more em{font-family:Arial,Helvetica,sans-serif}
 .section-title{align-items:flex-end;padding-bottom:12px}.section-title>span{display:block;font-size:42px;line-height:.88;font-weight:700;letter-spacing:-.055em;max-width:310px}.section-title>b{font-size:18px;padding-bottom:3px}
 .og-character{height:385px;margin-top:48px}.og-character img{object-fit:contain;object-position:center;filter:none!important}
 .og-character video{display:block;width:100%;height:100%;object-fit:contain}
 .og-character.has-video{overflow:hidden;background:transparent!important}
-.project-meta>span{font-family:"Aktiv Grotesk",Arial,Helvetica,sans-serif;font-weight:800;letter-spacing:.045em}
-.project-category{position:absolute;top:62px;left:18px;right:18px;z-index:8;color:#fff;font-family:"Aktiv Grotesk",Arial,Helvetica,sans-serif;font-size:30px;font-weight:500;line-height:.9;letter-spacing:-.025em;text-align:center;text-shadow:none;pointer-events:none}
+.project-meta>span{font-family:Arial,Helvetica,sans-serif;font-weight:800;letter-spacing:.045em}
+.project-category{position:absolute;top:62px;left:18px;right:18px;z-index:8;color:#fff;font-family:Arial,Helvetica,sans-serif;font-size:30px;font-weight:500;line-height:.9;letter-spacing:-.025em;text-align:center;text-shadow:none;pointer-events:none}
 
 /* Compact the transition from the reel to the project carousel. */
 .hero{min-height:0;padding-bottom:24px}
@@ -137,7 +134,7 @@ body,button{font-family:"Aktiv Grotesk",Arial,Helvetica,sans-serif}.hero h1 span
 .assistant-bubble header{display:flex;align-items:center;justify-content:space-between;padding:1px 3px 9px;border-bottom:1px solid #ddd}.assistant-bubble strong{color:var(--og-purple);font-size:13px}.assistant-bubble header small{font-size:9px;color:#198754}.assistant-bubble header small:before{content:"";display:inline-block;width:6px;height:6px;margin-right:4px;border-radius:50%;background:#20c770}
 .assistant-messages{max-height:210px;overflow:auto;padding:10px 2px 4px;display:flex;flex-direction:column;gap:7px;scrollbar-width:none}.assistant-messages::-webkit-scrollbar{display:none}.assistant-messages p{max-width:88%;margin:0;padding:9px 10px;border-radius:13px;font-size:10px;line-height:1.35}.assistant-messages p.bot{align-self:flex-start;background:#eee9ff;color:#20175e}.assistant-messages p.user{align-self:flex-end;background:var(--og-blue);color:#fff}.assistant-messages p.typing{display:flex;gap:3px;width:42px}.assistant-messages p.typing i{width:5px;height:5px;border-radius:50%;background:var(--og-purple);animation:chat-dot .9s ease-in-out infinite}.assistant-messages p.typing i:nth-child(2){animation-delay:.15s}.assistant-messages p.typing i:nth-child(3){animation-delay:.3s}
 .assistant-prompts{display:flex;gap:5px;overflow-x:auto;padding:5px 1px 8px;scrollbar-width:none}.assistant-prompts button{flex:0 0 auto;border:1px solid var(--og-purple);border-radius:999px;background:#fff;color:var(--og-purple);padding:6px 8px;font-size:9px;font-weight:600;cursor:pointer}
-.assistant-form{display:grid;grid-template-columns:1fr 34px;gap:6px;padding-top:7px;border-top:1px solid #ddd}.assistant-form input{min-width:0;border:1.5px solid #bbb;border-radius:12px;padding:9px 10px;font:500 10px "Aktiv Grotesk",Arial,sans-serif}.assistant-form button{border:0;border-radius:11px;background:var(--og-purple);color:#fff;font-size:17px;cursor:pointer}.assistant-form button:disabled{opacity:.35}
+.assistant-form{display:grid;grid-template-columns:1fr 34px;gap:6px;padding-top:7px;border-top:1px solid #ddd}.assistant-form input{min-width:0;border:1.5px solid #bbb;border-radius:12px;padding:9px 10px;font:500 10px Arial,sans-serif}.assistant-form button{border:0;border-radius:11px;background:var(--og-purple);color:#fff;font-size:17px;cursor:pointer}.assistant-form button:disabled{opacity:.35}
 .assistant-actions{display:flex;gap:6px;margin-top:7px}.assistant-actions button{flex:1;border:0;border-radius:9px;background:var(--og-yellow);color:#111;padding:7px;font-size:9px;font-weight:700;cursor:pointer}.assistant-actions button:last-child{background:#eee9ff;color:var(--og-purple)}
 @keyframes assistant-float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-8px) rotate(2deg)}}
 @keyframes chat-dot{0%,100%{transform:translateY(0);opacity:.35}50%{transform:translateY(-3px);opacity:1}}
