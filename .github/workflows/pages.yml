@@ -39,6 +39,49 @@ jobs:
           cp public/fonts/aktiv-*.ttf dist/client/_next/static/fonts/
           cp public/project-atlas.png dist/client/_next/static/project-atlas.png
           touch dist/client/.nojekyll
+      - name: Normalize and verify Pages asset URLs
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import path from 'node:path';
+          const root = path.resolve('dist/client');
+          const prefix = '/promocion';
+          function walk(dir) {
+            return fs.readdirSync(dir, { withFileTypes: true }).flatMap(entry => {
+              const file = path.join(dir, entry.name);
+              return entry.isDirectory() ? walk(file) : [file];
+            });
+          }
+          const files = walk(root);
+          for (const file of files.filter(file => /\.(html|css)$/.test(file))) {
+            const original = fs.readFileSync(file, 'utf8');
+            const fixed = original.replace(
+              /(["'(])\/(?!\/|promocion(?:\/|["')]))(_next\/|fonts\/|project-atlas\.png)/g,
+              (_, quote, resource) => quote + prefix + '/' + resource,
+            );
+            fs.writeFileSync(file, fixed);
+          }
+          const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+          const tags = html.match(/<(?:script|link)\b[^>]*>/g) || [];
+          let stylesheets = 0;
+          let scripts = 0;
+          for (const tag of tags) {
+            const isStyle = /rel=["']stylesheet["']/.test(tag);
+            const isScript = tag.startsWith('<script');
+            if (!isStyle && !isScript) continue;
+            const url = tag.match(/(?:href|src)=["']([^"']+)["']/)?.[1];
+            if (!url || /^(https?:)?\/\//.test(url)) continue;
+            if (!url.startsWith(prefix + '/')) throw new Error('Asset outside Pages base: ' + url);
+            const local = path.resolve(root, url.slice(prefix.length + 1).split(/[?#]/)[0]);
+            if (!local.startsWith(root + path.sep) || !fs.existsSync(local)) {
+              throw new Error('Missing published asset: ' + url);
+            }
+            if (isStyle) stylesheets++;
+            if (isScript) scripts++;
+          }
+          if (!stylesheets || !scripts) throw new Error('Missing entry stylesheets or scripts');
+          console.log('Verified Pages entry assets:', { stylesheets, scripts });
+          NODE
       - uses: actions/configure-pages@v5
         with:
           enablement: true
